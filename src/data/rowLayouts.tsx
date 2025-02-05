@@ -1,4 +1,9 @@
-import { TiArrowLeftOutline, TiArrowRightOutline } from 'react-icons/ti'
+import {
+  TiArrowLeftOutline,
+  TiArrowRightOutline,
+  TiMinusOutline,
+  TiTimesOutline,
+} from 'react-icons/ti'
 
 export default {
   allLeft: () => (
@@ -13,6 +18,22 @@ export default {
     <div className="row">
       {Array.from({ length: 5 }, (_, index) => (
         <TiArrowRightOutline key={index} />
+      ))}
+    </div>
+  ),
+
+  allCross: () => (
+    <div className="row">
+      {Array.from({ length: 5 }, (_, index) => (
+        <TiTimesOutline key={index} />
+      ))}
+    </div>
+  ),
+
+  allDash: () => (
+    <div className="row">
+      {Array.from({ length: 5 }, (_, index) => (
+        <TiMinusOutline key={index} />
       ))}
     </div>
   ),
@@ -34,6 +55,46 @@ export default {
       <TiArrowRightOutline />
       <TiArrowLeftOutline />
       <TiArrowLeftOutline />
+    </div>
+  ),
+
+  dashRight: () => (
+    <div className="row">
+      <TiMinusOutline />
+      <TiMinusOutline />
+      <TiArrowRightOutline />
+      <TiMinusOutline />
+      <TiMinusOutline />
+    </div>
+  ),
+
+  dashLeft: () => (
+    <div className="row">
+      <TiMinusOutline />
+      <TiMinusOutline />
+      <TiArrowLeftOutline />
+      <TiMinusOutline />
+      <TiMinusOutline />
+    </div>
+  ),
+
+  crossLeft: () => (
+    <div className="row">
+      <TiTimesOutline />
+      <TiTimesOutline />
+      <TiArrowLeftOutline />
+      <TiTimesOutline />
+      <TiTimesOutline />
+    </div>
+  ),
+
+  crossRight: () => (
+    <div className="row">
+      <TiTimesOutline />
+      <TiTimesOutline />
+      <TiArrowRightOutline />
+      <TiTimesOutline />
+      <TiTimesOutline />
     </div>
   ),
 }

@@ -1,13 +1,14 @@
 import { arrowLayouts } from '../data/arrowLayouts.tsx'
 import './Arrow.css'
+import { UsePatternContext } from '../hooks/UsePatternContext.tsx'
 
 const ArrowsPanel = () => {
-  const layoutNumber = Math.floor(Math.random() * arrowLayouts.length)
-  console.log('****()** number:', layoutNumber)
+  const { patternIndex } = UsePatternContext()
+  console.log('****()** number:', patternIndex)
 
   return (
     <div>
-      <div className="arrows symbols">{arrowLayouts[layoutNumber]}</div>
+      <div className="arrows symbols">{arrowLayouts[patternIndex]}</div>
     </div>
   )
 }
