@@ -7,7 +7,7 @@ const ArrowsPanel = () => {
   console.log('****()** number:', patternIndex)
 
   return (
-    <div>
+    <div className={`pattern-container`}>
       <div className="arrows symbols">{arrowLayouts[patternIndex]}</div>
     </div>
   )

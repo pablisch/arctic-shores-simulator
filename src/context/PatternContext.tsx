@@ -1,5 +1,6 @@
 import helpers from '../utils/helpers.ts'
-import { createContext, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
+import { UseSettingsContext } from '../hooks/UseSettingsContext.tsx'
 
 const initialPatternIndex = helpers.getNumber()
 
@@ -16,9 +17,11 @@ export const PatternContext = createContext<PatternContextType>({
 export const PatternContextProvider = ({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) => {
   const [patternIndex, setPatternIndex] = useState<number>(initialPatternIndex)
+
+  const { settings } = UseSettingsContext()
 
   const changePattern = (): void => {
     const newPatternIndex = getNewPatternIndex()
@@ -31,6 +34,14 @@ export const PatternContextProvider = ({
 
     return randomNumber
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPatternIndex(getNewPatternIndex())
+    }, settings.timeout)
+
+    return () => clearInterval(interval)
+  }, [patternIndex])
 
   return (
     <PatternContext.Provider
