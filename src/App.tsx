@@ -1,10 +1,12 @@
 import './App.css'
-import ArrowsPanel from './components/ArrowsPanel.tsx'
+import Navbar from './components/Navbar.tsx'
+import Layout from './components/Layout.tsx'
 
 function App() {
   return (
     <>
-      <ArrowsPanel />{' '}
+      <Navbar />
+      <Layout />
     </>
   )
 }

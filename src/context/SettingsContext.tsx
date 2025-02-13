@@ -4,6 +4,7 @@ import { SettingsObject } from '../types.ts'
 
 const defaultSettings = {
   timeout: data.defaultTimeout,
+  refresh: data.defaultRefresh,
 }
 
 export interface SettingsContextType {
