@@ -1,4 +1,7 @@
 nav {
-    height: 5vh;
-    background-color: #ddd;
+  height: var(--nav-height);
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,5 +1,5 @@
 import './Layout.css'
-import ReactionGame from './Test.tsx'
+import ReactionGame from './ReactionGame.tsx'
 
 const Layout = () => {
   return (

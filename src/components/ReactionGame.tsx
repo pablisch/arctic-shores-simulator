@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import './ReactionGame.css'
 
 function getRandomNumber(): number {
   return Math.floor(Math.random() * 18) + 1
@@ -54,24 +55,27 @@ const ReactionGame: React.FC = () => {
   }
 
   return (
-    <div className="p-4 text-center">
+    <div className="game-container">
       {!gameOver ? (
-        <>
-          <h1 className="text-2xl mb-4">Number: {number}</h1>
-          <p className="mb-4">
-            Press "Q" if the number is &lt; 10, otherwise press "P".
-          </p>
-          <p>Score: {score}</p>
-          <p>Can press: {canPress ? 'true' : 'false'}</p>
-        </>
+        <div className="game-on">
+          <div className={`pattern-container ${canPress ? '' : 'pressed'}`}>
+            <h1 className={`pattern ${canPress ? '' : 'pressed'}`}>{number}</h1>
+          </div>
+          <div className="game-info">
+            <p className="instructions">
+              Press "Q" if the number is &lt; 10, otherwise press "P".
+            </p>
+            <p className="score">Score: {score}</p>
+            <p className="can-press">
+              Can press: {canPress ? 'true' : 'false'}
+            </p>
+          </div>
+        </div>
       ) : (
-        <div className="text-red-600">
-          <h2 className="text-2xl mb-4">Game Over!</h2>
-          <p className="mb-4">Your final score: {score}</p>
-          <button
-            onClick={resetGame}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
+        <div className="game-over">
+          <h2 className="game-over-heading">Game Over!</h2>
+          <p className="final-score">Your final score: {score}</p>
+          <button className="reset-game" onClick={resetGame}>
             Play Again
           </button>
         </div>

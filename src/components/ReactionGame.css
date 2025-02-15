@@ -1,0 +1,36 @@
+.pattern-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 25px;
+  width: 20%;
+}
+
+.pattern {
+  font-size: 4rem;
+  color: darkgreen;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructions {
+  margin-bottom: 20px;
+}
+
+.pressed {
+  color: #fff;
+  background: #9c0c0c;
+}
+
+.game-on {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
