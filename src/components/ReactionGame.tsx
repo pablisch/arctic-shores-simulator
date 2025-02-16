@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import './ReactionGame.css'
+import { UseSettingsContext } from '../hooks/UseSettingsContext.tsx'
 
 function getRandomNumber(): number {
   return Math.floor(Math.random() * 18) + 1
@@ -10,6 +11,8 @@ const ReactionGame: React.FC = () => {
   const [score, setScore] = useState(0)
   const [gameOver, setGameOver] = useState(false)
   const [canPress, setCanPress] = useState(true)
+
+  const { settings } = UseSettingsContext()
 
   const generateNumber = useCallback(() => {
     return getRandomNumber()
@@ -22,7 +25,7 @@ const ReactionGame: React.FC = () => {
       const interval = setInterval(() => {
         setNumber(generateNumber())
         setCanPress(true)
-      }, 2000)
+      }, settings.refresh)
 
       const handleKeyPress = (event: KeyboardEvent) => {
         if (gameOver || !canPress) return
